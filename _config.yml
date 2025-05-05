@@ -1,0 +1,14 @@
+title: "Matthew L. Davis | Biostatistics Research" 
+email: matthew-l-davis@uiowa.edu 
+description: "Personal website featuring research in biostatistics, R package development, and statistical methods for microbiome data analysis." 
+baseurl: "" 
+url: "" 
+theme: minima 
+plugins: 
+  - jekyll-feed 
+  - jekyll-seo-tag 
+collections: 
+  projects: 
+    output: true 
+  publications: 
+    output: true 

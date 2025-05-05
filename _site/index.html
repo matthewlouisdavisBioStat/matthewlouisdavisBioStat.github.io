@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matthew L. Davis | Biostatistics Research</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #1abc9c;
+            --light-bg: #f8f9fa;
+            --dark-bg: #2c3e50;
+            --text-color: #333;
+            --light-text: #f8f9fa;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-heading: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --border-radius: 5px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+
+        header {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        nav {
+            background-color: var(--primary-color);
+            box-shadow: var(--shadow);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            display: block;
+            color: var(--light-text);
+            text-decoration: none;
+            padding: 1rem;
+            transition: all 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        section {
+            padding: 3rem 0;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-top: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 1rem;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            margin: 0.5rem;
+        }
+
+        .button:hover {
+            background-color: #16a085;
+            transform: translateY(-2px);
+        }
+
+        .card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-footer {
+            background-color: #f1f1f1;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 2rem;
+            border: 3px solid var(--primary-color);
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .publication {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .publication:last-child {
+            border-bottom: none;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background-color: #e0f7fa;
+            color: #00838f;
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.9rem;
+        }
+
+        code {
+            font-family: monospace;
+            background-color: #f1f1f1;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+        }
+
+        pre {
+            background-color: #f1f1f1;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            overflow-x: auto;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .blog-post {
+            margin-bottom: 3rem;
+        }
+
+        .blog-meta {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .post-excerpt {
+            margin-bottom: 1rem;
+        }
+
+        .list-none {
+            list-style: none;
+        }
+
+        .mb-2 {
+            margin-bottom: 2rem;
+        }
+
+        .project-screenshot {
+            max-width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .profile {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile-img {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.75rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Matthew L. Davis, PhD</h1>
+            <p>Biostatistician | Researcher | R Package Developer</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section id="about" class="container">
+            <div class="profile">
+                <img src="/api/placeholder/400/400" alt="Matthew L. Davis" class="profile-img">
+                <div class="profile-info">
+                    <h2>About Me</h2>
+                    <p>I am a biostatistician with expertise in statistical methods for microbiome data analysis, smoothing splines, and R package development. My research focuses on developing novel statistical approaches to address complex biological questions.</p>
+                    <p>Currently, I am focused on creating robust statistical tools that can be widely used by researchers in bioinformatics and related fields.</p>
+                    <div class="social-links">
+                        <a href="https://github.com/matthewlouisdavisBioStat" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="research" class="container">
+            <h2>Research Interests</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Microbiome Data Analysis</h3>
+                        <p>Developing statistical methods for microbiome differential abundance analysis that control for false discoveries while maintaining high statistical power.</p>
+                        <div class="tags">
+                            <span class="tag">Microbiome</span>
+                            <span class="tag">Differential Abundance</span>
+                            <span class="tag">Rank Normalization</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Smoothing Splines</h3>
+                        <p>Exploring novel formulations of smoothing splines using Lagrangian multipliers to enhance interpretability and accessibility for researchers.</p>
+                        <div class="tags">
+                            <span class="tag">Smoothing Splines</span>
+                            <span class="tag">Function Estimation</span>
+                            <span class="tag">Optimization</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Statistical Software Development</h3>
+                        <p>Creating user-friendly R packages that implement advanced statistical methods with accessible interfaces for applied researchers.</p>
+                        <div class="tags">
+                            <span class="tag">R Packages</span>
+                            <span class="tag">Software Development</span>
+                            <span class="tag">Open Science</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="container">
+            <h2>Featured Projects</h2>
+            
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h3>lgspline: Lagrangian Multiplier Smoothing Splines</h3>
+                    <p>An R package that implements a novel formulation of smoothing splines through constrained optimization. This approach provides direct access to predictor-response relationships through interpretable coefficients, unlike other formulations that require post-fitting algebraic manipulation.</p>
+                    
+                    <h4>Installation</h4>
+                    <pre><code># Install from GitHub
+devtools::install_github("matthewlouisdavisBioStat/lgspline")
+
+# Or install from CRAN
+install.packages('lgspline')</code></pre>
+                    
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li>Direct interpretation of predictor-response relationships</li>
+                        <li>Reformulation of smoothing splines using constrained optimization</li>
+                        <li>User-friendly interface for fitting complex models</li>
+                        <li>Comprehensive visualization tools</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a href="https://github.com/matthewlouisdavisBioStat/lgspline" class="button" target="_blank">GitHub Repository</a>
+                    <a href="#" class="button">Documentation</a>
+                </div>
+            </div>
+
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h3>Rank-Normalization for Microbiome Data Analysis</h3>
+                    <p>A framework for using rank normalization with a t-test for microbiome differential abundance analysis. This method offers strong control over the false discovery rate while maintaining good statistical power, especially with larger sample sizes.</p>
+                    
+                    <h4>Key Findings</h4>
+                    <ul>
+                        <li>Rank normalization with a t-test offers strong control over false discovery rate</li>
+                        <li>At sample sizes greater than 50 per treatment group, this approach outperforms many commonly used methods</li>
+                        <li>The method yields reproducible results in agreement with published findings</li>
+                    </ul>
+                    
+                    <h4>Example Code</h4>
+                    <pre><code># Basic implementation of rank normalization with t-test
+rankNormTTest <- function(data, group) {
+  # Replace counts with intrasample ranks
+  ranked_data <- apply(data, 2, rank)
+  
+  # Perform t-test on each feature
+  results <- apply(ranked_data, 1, function(x) {
+    t.test(x ~ group)$p.value
+  })
+  
+  return(results)
+}</code></pre>
+                </div>
+                <div class="card-footer">
+                    <a href="https://github.com/matthewlouisdavisBioStat/Rank-Normalization-Empowers-a-T-Test" class="button" target="_blank">GitHub Repository</a>
+                    <a href="https://academic.oup.com/bib/article/22/5/bbab059/6210069" class="button" target="_blank">Publication</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="publications" class="container">
+            <h2>Publications</h2>
+            
+            <div class="publication">
+                <h3>Rank normalization empowers a t-test for microbiome differential abundance analysis while controlling for false discoveries</h3>
+                <p><strong>Authors:</strong> Matthew L. Davis, Yuan Huang, Kai Wang</p>
+                <p><strong>Journal:</strong> Briefings in Bioinformatics, Volume 22, Issue 5, September 2021</p>
+                <p><strong>DOI:</strong> <a href="https://doi.org/10.1093/bib/bbab059" target="_blank">10.1093/bib/bbab059</a></p>
+                <p><strong>Abstract:</strong> A major task in the analysis of microbiome data is to identify microbes associated with differing biological conditions. Before conducting analysis, raw data must first be adjusted so that counts from different samples are comparable. We propose to use rank normalization as an alternative to the estimation of normalization factors and examine its performance when paired with a two-sample t-test.</p>
+            </div>
+            
+            <div class="publication">
+                <h3>Lagrangian Multiplier Smoothing Splines</h3>
+                <p><strong>Authors:</strong> Matthew L. Davis</p>
+                <p><strong>Year:</strong> 2025</p>
+                <p><strong>Repository:</strong> <a href="https://github.com/matthewlouisdavisBioStat/lgspline" target="_blank">GitHub</a></p>
+                <p><strong>Abstract:</strong> This work introduces a reformulation of smoothing splines through constrained optimization, providing direct access to predictor-response relationships through interpretable coefficients. The implementation is available as an R package, offering a user-friendly interface for researchers working with complex data.</p>
+            </div>
+        </section>
+
+        <section id="blog" class="container">
+            <h2>Blog: Statistics & Data Science Insights</h2>
+            
+            <div class="blog-post">
+                <h3>Understanding Rank Normalization for Microbiome Data</h3>
+                <div class="blog-meta">Posted on May 1, 2025 | Microbiome, Statistics</div>
+                <div class="post-excerpt">
+                    <p>Microbiome data present unique analytical challenges due to their high dimensionality, sparsity, and compositional nature. In this post, I discuss why rank normalization offers an elegant solution to many of these challenges when paired with a t-test for differential abundance analysis.</p>
+                </div>
+                <a href="#" class="button">Read More</a>
+            </div>
+            
+            <div class="blog-post">
+                <h3>The Art and Science of Smoothing Splines</h3>
+                <div class="blog-meta">Posted on April 15, 2025 | Statistical Methods</div>
+                <div class="post-excerpt">
+                    <p>Smoothing splines are powerful tools for function estimation, but traditional formulations can be difficult to interpret. In this post, I explore the intuition behind smoothing splines and introduce a novel formulation using Lagrangian multipliers that enhances interpretability.</p>
+                </div>
+                <a href="#" class="button">Read More</a>
+            </div>
+            
+            <div class="blog-post">
+                <h3>Building Robust Statistical Software in R</h3>
+                <div class="blog-meta">Posted on March 28, 2025 | R, Software Development</div>
+                <div class="post-excerpt">
+                    <p>Creating high-quality, user-friendly statistical software requires careful attention to both statistical correctness and usability. In this post, I share lessons learned from developing the lgspline package and offer tips for creating robust, maintainable R packages.</p>
+                </div>
+                <a href="#" class="button">Read More</a>
+            </div>
+        </section>
+
+        <section id="contact" class="container">
+            <h2>Contact</h2>
+            <p>I'm always interested in collaborations, discussions, and opportunities to apply statistical methods to interesting problems. Feel free to reach out!</p>
+            
+            <ul class="list-none">
+                <li><strong>Email:</strong> matthew-l-davis@uiowa.edu</li>
+                <li><strong>GitHub:</strong> <a href="https://github.com/matthewlouisdavisBioStat" target="_blank">matthewlouisdavisBioStat</a></li>
+                <li><strong>Office:</strong> Department of Biostatistics, University of Iowa</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <p>&copy; 2025 Matthew L. Davis. All rights reserved.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
