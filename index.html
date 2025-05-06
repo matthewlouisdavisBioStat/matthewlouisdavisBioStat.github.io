@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #3498db;
-            --secondary-color: #2c3e50;
-            --accent-color: #1abc9c;
+            --primary-color: #2980b9; /* Slightly darker blue */
+            --secondary-color: #1e2b3a; /* Darker purple */
+            --accent-color: #16a085;
             --light-bg: #f8f9fa;
-            --dark-bg: #2c3e50;
+            --dark-bg: #1e2b3a; /* Darker background */
             --text-color: #333;
             --light-text: #f8f9fa;
             --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -67,6 +67,8 @@
             text-decoration: none;
             padding: 1rem;
             transition: all 0.3s;
+            font-size: 1rem;
+            font-weight: 500;
         }
 
         nav ul li a:hover {
@@ -374,10 +376,17 @@
         }
         
         .academic-works {
-            background-color: #f9f9f9;
-            padding: 2rem;
+            background-color: #f5f7fa;
+            padding: 2.5rem;
             border-radius: var(--border-radius);
             margin-bottom: 3rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .academic-works h3 {
+            font-size: 1.7rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.2rem;
         }
         
         .two-column {
@@ -459,9 +468,7 @@
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#academic">Academic Work</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#blog">Blog</a></li>
+                <li><a href="#research">Research</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -473,8 +480,8 @@
                 <img src="assets/images/headshot.jpg" alt="Matthew L. Davis" class="profile-img">
                 <div class="profile-info">
                     <h2>About Me</h2>
-                    <p>I am a biostatistician and data scientist with expertise in statistical learning, predictive modeling, and R package development. My work explores the intersection of statistical theory and practical applications.</p>
-                    <p>I blend rigorous statistical methods with modern machine learning approaches to tackle complex problems across various domains, from microbiome analysis to sports analytics and customer behavior modeling.</p>
+                    <p>I am a biostatistician at Medpace working on clinical trials, with a focus on early-phase oncology and phase-III adaptive designs. My expertise spans statistical learning, predictive modeling, and R package development.</p>
+                    <p>I blend rigorous statistical methods with modern machine learning approaches to tackle complex problems across various domains, from clinical research and microbiome analysis to sports analytics and customer behavior modeling.</p>
                     <div class="social-links">
                         <a href="https://github.com/matthewlouisdavisBioStat" target="_blank"><i class="fab fa-github"></i></a>
                         <a href="mailto:matthewlouisdavis@gmail.com"><i class="fas fa-envelope"></i></a>
@@ -551,77 +558,36 @@
             </div>
         </section>
 
-        <section id="academic" class="container">
-            <h2>Academic Work</h2>
+        <section id="research" class="container">
+            <h2>Research</h2>
             <div class="academic-works">
                 <div class="two-column">
                     <div>
                         <h3>lgspline Package</h3>
                         <p>An R package that implements a novel formulation of smoothing splines through constrained optimization. This approach provides direct access to predictor-response relationships through interpretable coefficients, unlike other formulations that require post-fitting algebraic manipulation.</p>
+                        <div class="publication">
+                            <p><strong>Citation:</strong> Davis, M.L. (2025). lgspline: Lagrangian Multiplier Smoothing Splines. R package version 1.0.0.</p>
+                        </div>
                         <p><a href="https://CRAN.R-project.org/package=lgspline" class="button">CRAN</a> <a href="https://github.com/matthewlouisdavisBioStat/lgspline" class="button">GitHub</a></p>
                     </div>
                     <div>
                         <h3>Rank Normalization for Microbiome Data</h3>
                         <p>A statistical framework for differential abundance analysis in microbiome data that uses rank normalization paired with a t-test. This method provides strong control over the false discovery rate while maintaining good statistical power, especially with larger sample sizes.</p>
-                        <p><a href="https://doi.org/10.1093/bib/bbab059" class="button">Publication</a> <a href="https://github.com/matthewlouisdavisBioStat/Rank-Normalization-Empowers-a-T-Test" class="button">GitHub</a></p>
+                        <div class="publication">
+                            <p><strong>Citation:</strong> Davis ML, Huang Y, Wang K. Rank normalization empowers a t-test for microbiome differential abundance analysis while controlling for false discoveries. <em>Briefings in Bioinformatics</em>. 2021;22(5):bbab059.</p>
+                            <p><strong>DOI:</strong> <a href="https://doi.org/10.1093/bib/bbab059" target="_blank">10.1093/bib/bbab059</a></p>
+                        </div>
+                        <p><a href="https://github.com/matthewlouisdavisBioStat/Rank-Normalization-Empowers-a-T-Test" class="button">GitHub</a></p>
                     </div>
                 </div>
                 <div>
                     <h3>PhD Dissertation</h3>
                     <p>My dissertation research focused on developing novel statistical approaches for complex biological data, including smoothing spline methods and techniques for microbiome analysis.</p>
+                    <div class="publication">
+                        <p><strong>Citation:</strong> Davis, M.L. (2023). Thompson Sampling with Smoothing Splines for Hyperparameter Optimization: A Tuning Algorithm that Doesn't Need Tuning. <em>University of Iowa</em>, PhD Dissertation.</p>
+                    </div>
                     <p><a href="https://iro.uiowa.edu/view/pdfCoverPage?instCode=01IOWA_INST&filePid=13889223860002771&download=true" class="button">Repository</a></p>
                 </div>
-            </div>
-        </section>
-
-        <section id="publications" class="container">
-            <h2>Publications</h2>
-            
-            <div class="publication">
-                <h3>Rank normalization empowers a t-test for microbiome differential abundance analysis while controlling for false discoveries</h3>
-                <p><strong>Authors:</strong> Matthew L. Davis, Yuan Huang, Kai Wang</p>
-                <p><strong>Journal:</strong> Briefings in Bioinformatics, Volume 22, Issue 5, September 2021</p>
-                <p><strong>DOI:</strong> <a href="https://doi.org/10.1093/bib/bbab059" target="_blank">10.1093/bib/bbab059</a></p>
-                <p><strong>Abstract:</strong> A major task in the analysis of microbiome data is to identify microbes associated with differing biological conditions. Before conducting analysis, raw data must first be adjusted so that counts from different samples are comparable. We propose to use rank normalization as an alternative to the estimation of normalization factors and examine its performance when paired with a two-sample t-test.</p>
-            </div>
-            
-            <div class="publication">
-                <h3>Lagrangian Multiplier Smoothing Splines</h3>
-                <p><strong>Authors:</strong> Matthew L. Davis</p>
-                <p><strong>Year:</strong> 2025</p>
-                <p><strong>Repository:</strong> <a href="https://github.com/matthewlouisdavisBioStat/lgspline" target="_blank">GitHub</a></p>
-                <p><strong>Abstract:</strong> This work introduces a reformulation of smoothing splines through constrained optimization, providing direct access to predictor-response relationships through interpretable coefficients. The implementation is available as an R package, offering a user-friendly interface for researchers working with complex data.</p>
-            </div>
-        </section>
-
-        <section id="blog" class="container">
-            <h2>Blog: Statistics & Data Science Insights</h2>
-            
-            <div class="blog-post">
-                <h3>Betting Against the House: Using Bayesian Methods in Sports Analytics</h3>
-                <div class="blog-meta">Posted on May 1, 2025 | Sports Analytics, Bayesian Methods</div>
-                <div class="post-excerpt">
-                    <p>In this post, I discuss how to leverage historical betting lines to construct informative priors for predictive models in sports betting, and explore the effectiveness of model stacking in creating robust predictions that consistently outperform the market.</p>
-                </div>
-                <a href="blog/betting_against_house.html" class="button">Read More</a>
-            </div>
-            
-            <div class="blog-post">
-                <h3>The Art and Science of Smoothing Splines</h3>
-                <div class="blog-meta">Posted on April 15, 2025 | Statistical Methods</div>
-                <div class="post-excerpt">
-                    <p>Smoothing splines are powerful tools for function estimation, but traditional formulations can be difficult to interpret. In this post, I explore the intuition behind smoothing splines and introduce a novel formulation using Lagrangian multipliers that enhances interpretability.</p>
-                </div>
-                <a href="blog/smoothing_splines.html" class="button">Read More</a>
-            </div>
-            
-            <div class="blog-post">
-                <h3>Survival Analysis Beyond Medicine: Applications in Business</h3>
-                <div class="blog-meta">Posted on March 28, 2025 | Survival Analysis, Business Applications</div>
-                <div class="post-excerpt">
-                    <p>While survival analysis originated in medical research, it offers powerful tools for business applications like customer churn and product lifetime analysis. This post explores how to adapt classic survival methods to business contexts for more accurate predictions and decision-making.</p>
-                </div>
-                <a href="blog/survival_analysis_business.html" class="button">Read More</a>
             </div>
         </section>
 
@@ -633,7 +599,6 @@
                 <li><strong>Email:</strong> matthewlouisdavis@gmail.com</li>
                 <li><strong>GitHub:</strong> <a href="https://github.com/matthewlouisdavisBioStat" target="_blank">matthewlouisdavisBioStat</a></li>
                 <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/matthew-davis-biostat" target="_blank">matthew-davis-biostat</a></li>
-                <li><strong>Office:</strong> Department of Biostatistics, University of Iowa</li>
             </ul>
         </section>
     </main>
@@ -645,9 +610,9 @@
                     <p>&copy; 2025 Matthew L. Davis. All rights reserved.</p>
                 </div>
                 <div class="footer-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Use</a>
                     <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#research">Research</a>
                     <a href="#contact">Contact</a>
                 </div>
             </div>
