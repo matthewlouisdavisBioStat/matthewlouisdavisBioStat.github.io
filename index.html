@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matthew L. Davis | Biostatistics Research</title>
+    <title>Matthew L. Davis | Data Scientist & Statistician</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -148,6 +148,9 @@
             overflow: hidden;
             margin-bottom: 2rem;
             transition: all 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
@@ -157,6 +160,7 @@
 
         .card-body {
             padding: 1.5rem;
+            flex: 1;
         }
 
         .card-footer {
@@ -165,11 +169,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-top: auto;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 2rem;
         }
 
@@ -254,6 +259,7 @@
             color: var(--light-text);
             padding: 2rem 0;
             text-align: center;
+            margin-top: 2rem;
         }
 
         .footer-content {
@@ -305,10 +311,86 @@
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
             margin-bottom: 1rem;
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
         }
-
-        /* Responsive */
+        
+        .featured-project {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            margin-bottom: 3rem;
+            transition: all 0.3s;
+        }
+        
+        .featured-project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .featured-project h3 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .featured-project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .featured-project-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .featured-project-img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .tech-tag {
+            background-color: #e3f2fd;
+            color: #1565c0;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .academic-works {
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 3rem;
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
         @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            
             nav ul {
                 flex-direction: column;
                 align-items: center;
@@ -338,6 +420,15 @@
                 flex-direction: column;
                 gap: 1rem;
             }
+            
+            .featured-project-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .featured-project-links {
+                margin-top: 1rem;
+            }
         }
 
         @media (max-width: 576px) {
@@ -359,7 +450,7 @@
     <header>
         <div class="container">
             <h1>Matthew L. Davis, PhD</h1>
-            <p>Biostatistician | Researcher | R Package Developer</p>
+            <p>Data Scientist | Biostatistician | R Package Developer</p>
         </div>
     </header>
 
@@ -367,8 +458,8 @@
         <div class="container">
             <ul>
                 <li><a href="#about">About</a></li>
-                <li><a href="#research">Research</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#academic">Academic Work</a></li>
                 <li><a href="#publications">Publications</a></li>
                 <li><a href="#blog">Blog</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -382,50 +473,12 @@
                 <img src="assets/images/headshot.jpg" alt="Matthew L. Davis" class="profile-img">
                 <div class="profile-info">
                     <h2>About Me</h2>
-                    <p>I am a biostatistician with expertise in statistical methods for microbiome data analysis, smoothing splines, and R package development. My research focuses on developing novel statistical approaches to address complex biological questions.</p>
-                    <p>Currently, I am focused on creating robust statistical tools that can be widely used by researchers in bioinformatics and related fields.</p>
+                    <p>I am a biostatistician and data scientist with expertise in statistical learning, predictive modeling, and R package development. My work explores the intersection of statistical theory and practical applications.</p>
+                    <p>I blend rigorous statistical methods with modern machine learning approaches to tackle complex problems across various domains, from microbiome analysis to sports analytics and customer behavior modeling.</p>
                     <div class="social-links">
                         <a href="https://github.com/matthewlouisdavisBioStat" target="_blank"><i class="fab fa-github"></i></a>
                         <a href="mailto:matthewlouisdavis@gmail.com"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="research" class="container">
-            <h2>Research Interests</h2>
-            <div class="grid">
-                <div class="card">
-                    <div class="card-body">
-                        <h3>Microbiome Data Analysis</h3>
-                        <p>Developing statistical methods for microbiome differential abundance analysis that control for false discoveries while maintaining high statistical power.</p>
-                        <div class="tags">
-                            <span class="tag">Microbiome</span>
-                            <span class="tag">Differential Abundance</span>
-                            <span class="tag">Rank Normalization</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h3>Smoothing Splines</h3>
-                        <p>Exploring novel formulations of smoothing splines using Lagrangian multipliers to enhance interpretability and accessibility for researchers.</p>
-                        <div class="tags">
-                            <span class="tag">Smoothing Splines</span>
-                            <span class="tag">Function Estimation</span>
-                            <span class="tag">Optimization</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h3>Statistical Software Development</h3>
-                        <p>Creating user-friendly R packages that implement advanced statistical methods with accessible interfaces for applied researchers.</p>
-                        <div class="tags">
-                            <span class="tag">R Packages</span>
-                            <span class="tag">Software Development</span>
-                            <span class="tag">Open Science</span>
-                        </div>
+                        <a href="https://www.linkedin.com/in/matthew-davis-biostat" target="_blank"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
@@ -434,105 +487,89 @@
         <section id="projects" class="container">
             <h2>Featured Projects</h2>
             
-            <div class="card mb-2">
-                <div class="card-body">
-                    <h3>lgspline: Lagrangian Multiplier Smoothing Splines</h3>
-                    <p>An R package that implements a novel formulation of smoothing splines through constrained optimization. This approach provides direct access to predictor-response relationships through interpretable coefficients, unlike other formulations that require post-fitting algebraic manipulation.</p>
-                    
-                    <h4>Installation</h4>
-                    <pre><code># Install from GitHub
-devtools::install_github("matthewlouisdavisBioStat/lgspline")
-
-# Or install from CRAN
-install.packages('lgspline')</code></pre>
-                    
-                    <h4>Key Features</h4>
-                    <ul>
-                        <li>Direct interpretation of predictor-response relationships</li>
-                        <li>Reformulation of smoothing splines using constrained optimization</li>
-                        <li>User-friendly interface for fitting complex models</li>
-                        <li>Comprehensive visualization tools</li>
-                    </ul>
+            <div class="featured-project">
+                <div class="featured-project-header">
+                    <h3>To Make an Adversary Inadmissible</h3>
+                    <div class="featured-project-links">
+                        <a href="projects/nba_gambling.html" class="button">View Project</a>
+                        <a href="https://github.com/matthewlouisdavisBioStat/NBA-Betting" class="button">GitHub</a>
+                    </div>
                 </div>
-                <div class="card-footer">
-                    <a href="https://github.com/matthewlouisdavisBioStat/lgspline" class="button" target="_blank">GitHub Repository</a>
-                    <a href="#" class="button">Documentation</a>
-                </div>
-            </div>
-
-            <div class="card mb-2">
-                <div class="card-body">
-                    <h3>Rank-Normalization for Microbiome Data Analysis</h3>
-                    <p>A framework for using rank normalization with a t-test for microbiome differential abundance analysis. This method offers strong control over the false discovery rate while maintaining good statistical power, especially with larger sample sizes.</p>
-                    
-                    <h4>Key Findings</h4>
-                    <ul>
-                        <li>Rank normalization with a t-test offers strong control over false discovery rate</li>
-                        <li>At sample sizes greater than 50 per treatment group, this approach outperforms many commonly used methods</li>
-                        <li>The method yields reproducible results in agreement with published findings</li>
-                    </ul>
-                    
-                    <h4>Example Code</h4>
-                    <pre><code># Basic implementation of rank normalization with t-test
-rankNormTTest <- function(data, group) {
-  # Replace counts with intrasample ranks
-  ranked_data <- apply(data, 2, rank)
-  
-  # Perform t-test on each feature
-  results <- apply(ranked_data, 1, function(x) {
-    t.test(x ~ group)$p.value
-  })
-  
-  return(results)
-}</code></pre>
-                </div>
-                <div class="card-footer">
-                    <a href="https://github.com/matthewlouisdavisBioStat/Rank-Normalization-Empowers-a-T-Test" class="button" target="_blank">GitHub Repository</a>
-                    <a href="https://academic.oup.com/bib/article/22/5/bbab059/6210069" class="button" target="_blank">Publication</a>
+                <img src="assets/images/nba_project.jpg" alt="NBA Gambling Project" class="featured-project-img">
+                <p>A statistical approach to sports betting that leverages historical Vegas betting lines to form prior distributions. During the 2022-2023 NBA regular season, this methodology generated over $700 in profit across hundreds of small bets by identifying market inefficiencies.</p>
+                <p>The system employs model stacking techniques and constructs model-agnostic posterior predictive distributions to make optimal betting decisions on over/under, spread, and moneyline bets.</p>
+                <p>The automated pipeline pulls fresh NBA data each morning, updates the models, and outputs decision spreadsheets identifying favorable betting opportunities based on current Vegas lines.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">R</span>
+                    <span class="tech-tag">Statistical Modeling</span>
+                    <span class="tech-tag">Bayesian Methods</span>
+                    <span class="tech-tag">Model Stacking</span>
+                    <span class="tech-tag">Automation</span>
                 </div>
             </div>
             
-            <div class="card mb-2">
-                <div class="card-body">
-                    <h3>NBA Gambling Project</h3>
-                    <p>During the 2022-2023 NBA regular season, I developed and implemented a statistical approach to sports betting that generated over $700 in profit across hundreds of small bets. The strategy focused on over/unders, spread, and moneyline bets.</p>
-                    
-                    <h4>Methodology</h4>
-                    <ul>
-                        <li>Statistical modeling of team performance metrics</li>
-                        <li>Analysis of historical betting trends</li>
-                        <li>Identification of market inefficiencies</li>
-                        <li>Disciplined bankroll management</li>
-                    </ul>
-                    
-                    <h4>Results</h4>
-                    <ul>
-                        <li>Total profit: $700+</li>
-                        <li>Time period: 2022-2023 NBA regular season</li>
-                        <li>Bet types: Over/unders, spread, and moneyline</li>
-                    </ul>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="button">View Results</a>
-                </div>
-            </div>
-            
-            <div class="card mb-2">
-                <div class="card-body">
+            <div class="featured-project">
+                <div class="featured-project-header">
                     <h3>MNIST with a Twist</h3>
-                    <p>A project exploring whether neural networks can learn the concept of "rotation" through a conditional Variational Autoencoder (VAE) trained on MNIST digit images.</p>
-                    
-                    <h4>Project Overview</h4>
-                    <p>The conditional VAE was designed to encode MNIST digits into a latent space, learn rotation as a manipulable variable in this space, and generate new rotated versions of input digits.</p>
-                    
-                    <h4>Technical Implementation</h4>
-                    <ul>
-                        <li>Architecture: Conditional VAE with rotation encoding</li>
-                        <li>Dataset: Modified MNIST with rotated versions of digits</li>
-                    </ul>
+                    <div class="featured-project-links">
+                        <a href="projects/mnist_twist.html" class="button">View Project</a>
+                        <a href="https://github.com/matthewlouisdavisBioStat/MNIST-Twist" class="button">GitHub</a>
+                    </div>
                 </div>
-                <div class="card-footer">
-                    <a href="#" class="button">View Project</a>
+                <img src="assets/images/mnist_project.jpg" alt="MNIST with a Twist" class="featured-project-img">
+                <p>An exploration of whether neural networks can learn abstract concepts like "rotation" through a conditional Variational Autoencoder (VAE) trained on MNIST digit images. This project literally "twists" the generated digits by controlling both the digit identity and rotation angle in latent space.</p>
+                <p>The conditional VAE encodes MNIST digits into a latent space where rotation becomes a manipulable variable, allowing for the generation of new rotated versions of input digits. While the model performs well within its training distribution, it struggles to generalize rotation beyond the specific angles seen during training.</p>
+                <p>This project demonstrates both the capabilities and limitations of deep generative models in learning abstract transformations from data.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">PyTorch</span>
+                    <span class="tech-tag">Deep Learning</span>
+                    <span class="tech-tag">VAE</span>
+                    <span class="tech-tag">Computer Vision</span>
+                    <span class="tech-tag">Python</span>
+                </div>
+            </div>
+            
+            <div class="featured-project">
+                <div class="featured-project-header">
+                    <h3>Time to Churn</h3>
+                    <div class="featured-project-links">
+                        <a href="projects/churn_analysis.html" class="button">View Project</a>
+                        <a href="https://github.com/matthewlouisdavisBioStat/Churn-Analysis" class="button">GitHub</a>
+                    </div>
+                </div>
+                <img src="assets/images/churn_project.jpg" alt="Time to Churn Analysis" class="featured-project-img">
+                <p>A survival analysis framework applied to business data to predict customer churn and evaluate the effectiveness of email interventions. This project uses a Weibull Accelerated Failure Time (AFT) model implemented through my lgspline R package.</p>
+                <p>The system provides predicted time-to-churn based on customer attributes and interactions, identifies the most important predictors of churn, and generates statistically rigorous interpretations of the factors influencing customer retention.</p>
+                <p>A key feature is an automated recommendation engine that suggests optimal interventions for individual customers based on their specific characteristics, leveraging posterior draws from the model to maintain the statistical properties of randomized experiments while improving over pure random assignment.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Survival Analysis</span>
+                    <span class="tech-tag">R</span>
+                    <span class="tech-tag">lgspline</span>
+                    <span class="tech-tag">Business Analytics</span>
+                    <span class="tech-tag">Bayesian Methods</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="academic" class="container">
+            <h2>Academic Work</h2>
+            <div class="academic-works">
+                <div class="two-column">
+                    <div>
+                        <h3>lgspline Package</h3>
+                        <p>An R package that implements a novel formulation of smoothing splines through constrained optimization. This approach provides direct access to predictor-response relationships through interpretable coefficients, unlike other formulations that require post-fitting algebraic manipulation.</p>
+                        <p><a href="https://CRAN.R-project.org/package=lgspline" class="button">CRAN</a> <a href="https://github.com/matthewlouisdavisBioStat/lgspline" class="button">GitHub</a></p>
+                    </div>
+                    <div>
+                        <h3>Rank Normalization for Microbiome Data</h3>
+                        <p>A statistical framework for differential abundance analysis in microbiome data that uses rank normalization paired with a t-test. This method provides strong control over the false discovery rate while maintaining good statistical power, especially with larger sample sizes.</p>
+                        <p><a href="https://doi.org/10.1093/bib/bbab059" class="button">Publication</a> <a href="https://github.com/matthewlouisdavisBioStat/Rank-Normalization-Empowers-a-T-Test" class="button">GitHub</a></p>
+                    </div>
+                </div>
+                <div>
+                    <h3>PhD Dissertation</h3>
+                    <p>My dissertation research focused on developing novel statistical approaches for complex biological data, including smoothing spline methods and techniques for microbiome analysis.</p>
+                    <p><a href="https://iro.uiowa.edu/view/pdfCoverPage?instCode=01IOWA_INST&filePid=13889223860002771&download=true" class="button">Repository</a></p>
                 </div>
             </div>
         </section>
@@ -555,25 +592,18 @@ rankNormTTest <- function(data, group) {
                 <p><strong>Repository:</strong> <a href="https://github.com/matthewlouisdavisBioStat/lgspline" target="_blank">GitHub</a></p>
                 <p><strong>Abstract:</strong> This work introduces a reformulation of smoothing splines through constrained optimization, providing direct access to predictor-response relationships through interpretable coefficients. The implementation is available as an R package, offering a user-friendly interface for researchers working with complex data.</p>
             </div>
-            
-            <div class="publication">
-                <h3>Dissertation</h3>
-                <p><strong>Authors:</strong> Matthew L. Davis</p>
-                <p><strong>Year:</strong> 2023</p>
-                <p><strong>Repository:</strong> <a href="https://iro.uiowa.edu/view/pdfCoverPage?instCode=01IOWA_INST&filePid=13889223860002771&download=true" target="_blank">University of Iowa Repository</a></p>
-            </div>
         </section>
 
         <section id="blog" class="container">
             <h2>Blog: Statistics & Data Science Insights</h2>
             
             <div class="blog-post">
-                <h3>Understanding Rank Normalization for Microbiome Data</h3>
-                <div class="blog-meta">Posted on May 1, 2025 | Microbiome, Statistics</div>
+                <h3>Betting Against the House: Using Bayesian Methods in Sports Analytics</h3>
+                <div class="blog-meta">Posted on May 1, 2025 | Sports Analytics, Bayesian Methods</div>
                 <div class="post-excerpt">
-                    <p>Microbiome data present unique analytical challenges due to their high dimensionality, sparsity, and compositional nature. In this post, I discuss why rank normalization offers an elegant solution to many of these challenges when paired with a t-test for differential abundance analysis.</p>
+                    <p>In this post, I discuss how to leverage historical betting lines to construct informative priors for predictive models in sports betting, and explore the effectiveness of model stacking in creating robust predictions that consistently outperform the market.</p>
                 </div>
-                <a href="#" class="button">Read More</a>
+                <a href="blog/betting_against_house.html" class="button">Read More</a>
             </div>
             
             <div class="blog-post">
@@ -582,16 +612,16 @@ rankNormTTest <- function(data, group) {
                 <div class="post-excerpt">
                     <p>Smoothing splines are powerful tools for function estimation, but traditional formulations can be difficult to interpret. In this post, I explore the intuition behind smoothing splines and introduce a novel formulation using Lagrangian multipliers that enhances interpretability.</p>
                 </div>
-                <a href="#" class="button">Read More</a>
+                <a href="blog/smoothing_splines.html" class="button">Read More</a>
             </div>
             
             <div class="blog-post">
-                <h3>Building Robust Statistical Software in R</h3>
-                <div class="blog-meta">Posted on March 28, 2025 | R, Software Development</div>
+                <h3>Survival Analysis Beyond Medicine: Applications in Business</h3>
+                <div class="blog-meta">Posted on March 28, 2025 | Survival Analysis, Business Applications</div>
                 <div class="post-excerpt">
-                    <p>Creating high-quality, user-friendly statistical software requires careful attention to both statistical correctness and usability. In this post, I share lessons learned from developing the lgspline package and offer tips for creating robust, maintainable R packages.</p>
+                    <p>While survival analysis originated in medical research, it offers powerful tools for business applications like customer churn and product lifetime analysis. This post explores how to adapt classic survival methods to business contexts for more accurate predictions and decision-making.</p>
                 </div>
-                <a href="#" class="button">Read More</a>
+                <a href="blog/survival_analysis_business.html" class="button">Read More</a>
             </div>
         </section>
 
@@ -602,6 +632,7 @@ rankNormTTest <- function(data, group) {
             <ul class="list-none">
                 <li><strong>Email:</strong> matthewlouisdavis@gmail.com</li>
                 <li><strong>GitHub:</strong> <a href="https://github.com/matthewlouisdavisBioStat" target="_blank">matthewlouisdavisBioStat</a></li>
+                <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/matthew-davis-biostat" target="_blank">matthew-davis-biostat</a></li>
                 <li><strong>Office:</strong> Department of Biostatistics, University of Iowa</li>
             </ul>
         </section>
