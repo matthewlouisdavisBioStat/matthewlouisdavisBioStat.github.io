@@ -9,7 +9,7 @@
         :root {
             --primary-color: #2980b9; /* Slightly darker blue */
             --secondary-color: #1e2b3a; /* Darker purple */
-            --accent-color: #16a085;
+            --accent-color: #563d7c; /* Dark purple for buttons */
             --light-bg: #f8f9fa;
             --dark-bg: #1e2b3a; /* Darker background */
             --text-color: #333;
@@ -136,11 +136,14 @@
             font-weight: bold;
             transition: all 0.3s;
             margin: 0.5rem;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+            border: none;
         }
 
         .button:hover {
-            background-color: #16a085;
+            background-color: #472c6c;
             transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
         .card {
@@ -394,6 +397,59 @@
             grid-template-columns: 1fr 1fr;
             gap: 2rem;
         }
+
+        .education-item, .experience-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .education-item:last-child, .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .degree-title, .job-title {
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 0.3rem;
+        }
+
+        .institution, .company {
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .responsibilities {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .responsibilities li {
+            margin-bottom: 0.5rem;
+        }
+
+        .code-block {
+            background-color: #f8f8f8;
+            border-radius: 5px;
+            padding: 1rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+            font-family: monospace;
+            font-size: 0.9rem;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .mnist-output {
+            margin: 1.5rem 0;
+            text-align: center;
+        }
         
         @media (max-width: 768px) {
             .two-column {
@@ -459,7 +515,7 @@
     <header>
         <div class="container">
             <h1>Matthew L. Davis, PhD</h1>
-            <p>Data Scientist | Biostatistician | R Package Developer</p>
+            <p>Data Scientist | Biostatistician</p>
         </div>
     </header>
 
@@ -467,8 +523,9 @@
         <div class="container">
             <ul>
                 <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
                 <li><a href="#research">Research</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education-experience">Education & Experience</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -485,88 +542,22 @@
                     <div class="social-links">
                         <a href="https://github.com/matthewlouisdavisBioStat" target="_blank"><i class="fab fa-github"></i></a>
                         <a href="mailto:matthewlouisdavis@gmail.com"><i class="fas fa-envelope"></i></a>
-                        <a href="https://www.linkedin.com/in/matthew-davis-biostat" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.linkedin.com/in/matthew-davis-23302318/" target="_blank"><i class="fab fa-linkedin"></i></a>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="container">
-            <h2>Featured Projects</h2>
-            
-            <div class="featured-project">
-                <div class="featured-project-header">
-                    <h3>To Make an Adversary Inadmissible</h3>
-                    <div class="featured-project-links">
-                        <a href="projects/nba_gambling.html" class="button">View Project</a>
-                        <a href="https://github.com/matthewlouisdavisBioStat/NBA-Betting" class="button">GitHub</a>
-                    </div>
-                </div>
-                <img src="assets/images/nba_project.jpg" alt="NBA Gambling Project" class="featured-project-img">
-                <p>A statistical approach to sports betting that leverages historical Vegas betting lines to form prior distributions. During the 2022-2023 NBA regular season, this methodology generated over $700 in profit across hundreds of small bets by identifying market inefficiencies.</p>
-                <p>The system employs model stacking techniques and constructs model-agnostic posterior predictive distributions to make optimal betting decisions on over/under, spread, and moneyline bets.</p>
-                <p>The automated pipeline pulls fresh NBA data each morning, updates the models, and outputs decision spreadsheets identifying favorable betting opportunities based on current Vegas lines.</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">R</span>
-                    <span class="tech-tag">Statistical Modeling</span>
-                    <span class="tech-tag">Bayesian Methods</span>
-                    <span class="tech-tag">Model Stacking</span>
-                    <span class="tech-tag">Automation</span>
-                </div>
-            </div>
-            
-            <div class="featured-project">
-                <div class="featured-project-header">
-                    <h3>MNIST with a Twist</h3>
-                    <div class="featured-project-links">
-                        <a href="projects/mnist_twist.html" class="button">View Project</a>
-                        <a href="https://github.com/matthewlouisdavisBioStat/MNIST-Twist" class="button">GitHub</a>
-                    </div>
-                </div>
-                <img src="assets/images/mnist_project.jpg" alt="MNIST with a Twist" class="featured-project-img">
-                <p>An exploration of whether neural networks can learn abstract concepts like "rotation" through a conditional Variational Autoencoder (VAE) trained on MNIST digit images. This project literally "twists" the generated digits by controlling both the digit identity and rotation angle in latent space.</p>
-                <p>The conditional VAE encodes MNIST digits into a latent space where rotation becomes a manipulable variable, allowing for the generation of new rotated versions of input digits. While the model performs well within its training distribution, it struggles to generalize rotation beyond the specific angles seen during training.</p>
-                <p>This project demonstrates both the capabilities and limitations of deep generative models in learning abstract transformations from data.</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">PyTorch</span>
-                    <span class="tech-tag">Deep Learning</span>
-                    <span class="tech-tag">VAE</span>
-                    <span class="tech-tag">Computer Vision</span>
-                    <span class="tech-tag">Python</span>
-                </div>
-            </div>
-            
-            <div class="featured-project">
-                <div class="featured-project-header">
-                    <h3>Time to Churn</h3>
-                    <div class="featured-project-links">
-                        <a href="projects/churn_analysis.html" class="button">View Project</a>
-                        <a href="https://github.com/matthewlouisdavisBioStat/Churn-Analysis" class="button">GitHub</a>
-                    </div>
-                </div>
-                <img src="assets/images/churn_project.jpg" alt="Time to Churn Analysis" class="featured-project-img">
-                <p>A survival analysis framework applied to business data to predict customer churn and evaluate the effectiveness of email interventions. This project uses a Weibull Accelerated Failure Time (AFT) model implemented through my lgspline R package.</p>
-                <p>The system provides predicted time-to-churn based on customer attributes and interactions, identifies the most important predictors of churn, and generates statistically rigorous interpretations of the factors influencing customer retention.</p>
-                <p>A key feature is an automated recommendation engine that suggests optimal interventions for individual customers based on their specific characteristics, leveraging posterior draws from the model to maintain the statistical properties of randomized experiments while improving over pure random assignment.</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Survival Analysis</span>
-                    <span class="tech-tag">R</span>
-                    <span class="tech-tag">lgspline</span>
-                    <span class="tech-tag">Business Analytics</span>
-                    <span class="tech-tag">Bayesian Methods</span>
                 </div>
             </div>
         </section>
 
         <section id="research" class="container">
-            <h2>Research</h2>
+            <h2>Featured Research</h2>
             <div class="academic-works">
                 <div class="two-column">
                     <div>
                         <h3>lgspline Package</h3>
                         <p>An R package that implements a novel formulation of smoothing splines through constrained optimization. This approach provides direct access to predictor-response relationships through interpretable coefficients, unlike other formulations that require post-fitting algebraic manipulation.</p>
                         <div class="publication">
-                            <p><strong>Citation:</strong> Davis, M.L. (2025). lgspline: Lagrangian Multiplier Smoothing Splines. R package version 1.0.0.</p>
+                            <p><strong>Citation:</strong> Davis, M. (2025). lgspline: Lagrangian Multiplier Smoothing Splines. R package version 0.2.0. https://CRAN.R-project.org/package=lgspline</p>
+                            <p><strong>DOI:</strong> <a href="https://doi.org/10.32614/CRAN.package.lgspline" target="_blank">10.32614/CRAN.package.lgspline</a></p>
                         </div>
                         <p><a href="https://CRAN.R-project.org/package=lgspline" class="button">CRAN</a> <a href="https://github.com/matthewlouisdavisBioStat/lgspline" class="button">GitHub</a></p>
                     </div>
@@ -586,8 +577,166 @@
                     <div class="publication">
                         <p><strong>Citation:</strong> Davis, M.L. (2023). Thompson Sampling with Smoothing Splines for Hyperparameter Optimization: A Tuning Algorithm that Doesn't Need Tuning. <em>University of Iowa</em>, PhD Dissertation.</p>
                     </div>
-                    <p><a href="https://iro.uiowa.edu/view/pdfCoverPage?instCode=01IOWA_INST&filePid=13889223860002771&download=true" class="button">Repository</a></p>
+                    <p><a href="https://iro.uiowa.edu/view/pdfCoverPage?instCode=01IOWA_INST&filePid=13889223860002771&download=true" class="button">Repository</a> <a href="https://github.com/matthewlouisdavisBioStat/TSSSr" class="button">GitHub</a></p>
                 </div>
+            </div>
+        </section>
+
+        <section id="projects" class="container">
+            <h2>Featured Projects</h2>
+            
+            <div class="featured-project">
+                <div class="featured-project-header">
+                    <h3>Time to Churn</h3>
+                    <div class="featured-project-links">
+                        <a href="projects/churn_analysis.html" class="button">View Project</a>
+                        <a href="https://github.com/matthewlouisdavisBioStat/Churn-Analysis" class="button">GitHub</a>
+                    </div>
+                </div>
+                <img src="assets/images/churn_project.jpg" alt="Time to Churn Analysis" class="featured-project-img">
+                <p>A survival analysis framework applied to business data to predict customer churn and evaluate the effectiveness of email interventions. This project uses real data from a friend's growing subscription-based business, applying a Weibull Accelerated Failure Time (AFT) model implemented through my lgspline R package.</p>
+                <p>The system provides predicted time-to-churn based on customer attributes and interactions, identifies the most important predictors of churn, and generates statistically rigorous interpretations of the factors influencing customer retention.</p>
+                <p>A key feature is an automated recommendation engine that suggests optimal interventions for individual customers based on their specific characteristics, leveraging posterior draws from the model to maintain the statistical properties of randomized experiments while improving over pure random assignment. This showcases the versatility of survival smoothing splines for various business applications.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Survival Analysis</span>
+                    <span class="tech-tag">R</span>
+                    <span class="tech-tag">lgspline</span>
+                    <span class="tech-tag">Business Analytics</span>
+                    <span class="tech-tag">Bayesian Methods</span>
+                </div>
+            </div>
+            
+            <div class="featured-project">
+                <div class="featured-project-header">
+                    <h3>MNIST with a Twist</h3>
+                    <div class="featured-project-links">
+                        <a href="projects/mnist_twist.html" class="button">View Project</a>
+                        <a href="https://github.com/matthewlouisdavisBioStat/MNIST-Twist" class="button">GitHub</a>
+                    </div>
+                </div>
+                <img src="assets/images/mnist_project.jpg" alt="MNIST with a Twist" class="featured-project-img">
+                <p>While MNIST is almost a cliché in machine learning, this project adds a novel (literal) twist by conditioning a Variational Autoencoder (VAE) on both digit identity and rotation angle as numeric vectors appended to the latent space. This approach tests whether neural networks can truly learn abstract concepts like "rotation" rather than simply memorizing training examples.</p>
+                <p>The conditional VAE encodes MNIST digits into a latent space where rotation becomes a manipulable variable, allowing for the generation of new rotated versions of input digits. This project also served as an opportunity to experiment with the Azure ML pipeline for model training and deployment.</p>
+                <div class="mnist-output">
+                    <img src="assets/images/mnist_output.jpg" alt="VAE Output with Different Rotations" style="max-width: 100%; max-height: 800px; object-fit: contain; box-shadow: var(--shadow); border-radius: var(--border-radius);">
+                </div>
+                <p>While the model performs well within its training distribution, it struggles to generalize rotation beyond the specific angles seen during training, demonstrating both the capabilities and limitations of deep generative models in learning abstract transformations from data.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">PyTorch</span>
+                    <span class="tech-tag">Deep Learning</span>
+                    <span class="tech-tag">VAE</span>
+                    <span class="tech-tag">Computer Vision</span>
+                    <span class="tech-tag">Azure ML</span>
+                    <span class="tech-tag">Python</span>
+                </div>
+            </div>
+            
+            <div class="featured-project">
+                <div class="featured-project-header">
+                    <h3>To Make an Adversary Inadmissible</h3>
+                    <div class="featured-project-links">
+                        <a href="projects/nba_gambling.html" class="button">View Project</a>
+                        <a href="https://github.com/matthewlouisdavisBioStat/NBA-Betting" class="button">GitHub</a>
+                    </div>
+                </div>
+                <img src="assets/images/nba_project.jpg" alt="NBA Gambling Project" class="featured-project-img">
+                <p>A statistical approach to sports betting that leverages historical Vegas betting lines to form prior distributions. The key insight is using Vegas's own historical over/under predictions as a powerful prior distribution - a quantification of their expert knowledge - and combining this with a stacked machine learning model as a likelihood function.</p>
+                <img src="assets/images/gambling_balance.jpg" alt="Total Balance vs. Number of Bets Placed" style="max-width: 100%; margin: 1rem 0; border-radius: var(--border-radius); box-shadow: var(--shadow);">
+                <p>During the 2022-2023 NBA regular season, this methodology generated over $700 in profit across hundreds of small bets by identifying market inefficiencies where Vegas odds diverged from my posterior predictive distributions. The system essentially turns Vegas's own expertise against itself by leveraging their historical accuracy.</p>
+                <p>The automated pipeline pulls fresh NBA data each morning, updates the models, and outputs decision spreadsheets identifying favorable betting opportunities based on current Vegas lines, placing bets only when both models (Gaussian mixture and quasi-Poisson) agree that the expected profit is positive.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">R</span>
+                    <span class="tech-tag">Statistical Modeling</span>
+                    <span class="tech-tag">Bayesian Methods</span>
+                    <span class="tech-tag">Model Stacking</span>
+                    <span class="tech-tag">Automation</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="education-experience" class="container">
+            <h2>Education & Experience</h2>
+            
+            <h3>Education</h3>
+            <div class="education-item">
+                <div class="degree-title">Ph.D. Biostatistics</div>
+                <div class="institution">University of Iowa, Iowa City, IA</div>
+                <div class="date">May 2023</div>
+            </div>
+            
+            <div class="education-item">
+                <div class="degree-title">M.S. Biostatistics</div>
+                <div class="institution">University of Iowa, Iowa City, IA</div>
+                <div class="date">May 2020</div>
+            </div>
+            
+            <div class="education-item">
+                <div class="degree-title">B.S. Molecular Cellular Biology, Minor in Mathematics</div>
+                <div class="institution">University of Puget Sound, Tacoma, WA</div>
+                <div class="date">May 2016</div>
+            </div>
+            
+            <h3>Work Experience</h3>
+            <div class="experience-item">
+                <div class="job-title">Biostatistician</div>
+                <div class="company">Medpace, Denver, CO</div>
+                <div class="date">July 2023 – Present</div>
+                <ul class="responsibilities">
+                    <li>Lead statistical and programming activities for assigned projects and train new analysts</li>
+                    <li>Contribute to clinical development plan preparation</li>
+                    <li>Develop Data Analysis Plans for assigned projects</li>
+                    <li>Review study protocols and identify appropriate statistical methodologies</li>
+                    <li>Program study analyses, review study results, and prepare statistical methods sections for reports</li>
+                    <li>Communicate project requirements for CRF design, database design, and database cleanup to ensure that key study variables are suitable for analysis</li>
+                    <li>Communicate statistical results to medical writing personnel to ensure accurate interpretation</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="job-title">Head Course Instructor</div>
+                <div class="company">University of Iowa, College of Public Health, IA</div>
+                <div class="date">June 2022 – May 2023</div>
+                <ul class="responsibilities">
+                    <li>Served as head instructor of an online introductory biostatistics course for non-statisticians, including nurses, epidemiologists, undergraduate biology majors, and physicians</li>
+                    <li>Designed presentations, assignments, projects, exams, and lectures</li>
+                    <li>Educated non-statistical audiences on fundamental statistical theory, including regression, hypothesis testing, and Bayesian methods</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="job-title">Research Assistant</div>
+                <div class="company">University of Iowa, Office of Teaching and Learning Technologies, IA</div>
+                <div class="date">May 2019 – May 2022</div>
+                <ul class="responsibilities">
+                    <li>Analyzed undergraduate student data to help faculty learn about student behaviors and professors develop more effective teaching strategies</li>
+                    <li>Constructed PowerBI dashboards to assist faculty in understanding the behaviors of their students</li>
+                    <li>Applied statistical and machine learning methods to generate insights from big datasets</li>
+                    <li>Used SQL and API queries to gather data from online sources</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="job-title">Research Assistant</div>
+                <div class="company">National Resource Center, Iowa School of Social Work, IA</div>
+                <div class="date">March 2019 – August 2019</div>
+                <ul class="responsibilities">
+                    <li>Collaborated as the sole statistician with a diverse team of non-statisticians including social workers and other researchers</li>
+                    <li>Compared the effectiveness of social work interventions using contingency table analyses</li>
+                    <li>Designed questionnaires for understanding the sentiments of participants pre- versus post-interventions</li>
+                    <li>Wrote SAS macros to automate the simultaneous generation of tabular data</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="job-title">Biostatistics Intern</div>
+                <div class="company">Northwestern University, Feinberg School of Medicine, Chicago, IL</div>
+                <div class="date">May 2017 – July 2017</div>
+                <ul class="responsibilities">
+                    <li>Prepared and organized data specifications for the Chicago Multicenter AIDS Cohort Study</li>
+                    <li>Produced summary statistics in R, data cleaning in excel, and visualizations using Circos plots</li>
+                    <li>Performed regression analyses relating cohort demographics to clinically relevant outcomes</li>
+                    <li>Recorded, entered, and verified the validity of raw, level-I data in an online biomedical database</li>
+                </ul>
             </div>
         </section>
 
@@ -598,7 +747,7 @@
             <ul class="list-none">
                 <li><strong>Email:</strong> matthewlouisdavis@gmail.com</li>
                 <li><strong>GitHub:</strong> <a href="https://github.com/matthewlouisdavisBioStat" target="_blank">matthewlouisdavisBioStat</a></li>
-                <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/matthew-davis-biostat" target="_blank">matthew-davis-biostat</a></li>
+                <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/matthew-davis-23302318/" target="_blank">matthew-davis-23302318</a></li>
             </ul>
         </section>
     </main>
@@ -611,8 +760,9 @@
                 </div>
                 <div class="footer-links">
                     <a href="#about">About</a>
-                    <a href="#projects">Projects</a>
                     <a href="#research">Research</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#education-experience">Education & Experience</a>
                     <a href="#contact">Contact</a>
                 </div>
             </div>
