@@ -594,13 +594,14 @@
                     </div>
                 </div>
                 <img src="assets/images/churn_project.jpg" alt="Time to Churn Analysis" class="featured-project-img">
-                <p>A survival analysis framework applied to business data to predict customer churn and evaluate the effectiveness of email interventions. This project uses real data from a friend's growing subscription-based business, applying a Weibull Accelerated Failure Time (AFT) model implemented through my lgspline R package.</p>
-                <p>The system provides predicted time-to-churn based on customer attributes and interactions, identifies the most important predictors of churn, and generates statistically rigorous interpretations of the factors influencing customer retention.</p>
-                <p>A key feature is an automated recommendation engine that suggests optimal interventions for individual customers based on their specific characteristics, leveraging posterior draws from the model to maintain the statistical properties of randomized experiments while improving over pure random assignment. This showcases the versatility of survival smoothing splines for various business applications.</p>
+		<p>It's remarkable how little fields of research seem to communicate with each other. In this project, using real customer retention data, I show how a classic survival analysis often used for clinical trial research can be applied to one of the most important challenges any subscription-based business faces, "Churn". While many resources show how to predict customer retention, a survival framework can be used to make decision on profitability in a way that logistic regression and popular machine learning methods that ignore right-censoring simply can't. </p>
+                <p>For this project, real data from a friend's growing subscription-based business was used. Email "interventions" ranging from special offers to aesthetic advertisements were sent out to customers, and questions of interest included "what customers are most likely to churn", "what characteristics are most important in predicting churn", and most importantly "which intervention is most profitable?". I used a Weibull Accelerated Failure Time (AFT) model implemented through my lgspline R package to answer these.</p>
+                <p>My analysis provides predicted time-to-churn based on customer attributes and interactions, identifies the most important predictors of churn, and generates statistically rigorous interpretations of the factors influencing customer retention.</p>
+                <p>A key feature is an automated recommendation engine using Thompson sampling, a Bayesian optimization approach, that suggests optimal interventions for individual customers based on their specific characteristics, leveraging posterior draws from the model to maintain the statistical properties of randomized "experiments" while improving over pure random assignment. Not only is the best intervention recommended, but it's expected profit (and an entire posterior distribution for profit!) given the cost of the intervention is provided. This showcases the versatility of survival smoothing splines for analyzing churn.</p>
                 <div class="tech-stack">
                     <span class="tech-tag">Survival Analysis</span>
                     <span class="tech-tag">R</span>
-                    <span class="tech-tag">lgspline</span>
+                    <span class="tech-tag">Churn</span>
                     <span class="tech-tag">Business Analytics</span>
                     <span class="tech-tag">Bayesian Methods</span>
                 </div>
@@ -615,12 +616,12 @@
                     </div>
                 </div>
                 <img src="assets/images/mnist_project.jpg" alt="MNIST with a Twist" class="featured-project-img">
-                <p>While MNIST is almost a cliché in machine learning, this project adds a novel (literal) twist by conditioning a Variational Autoencoder (VAE) on both digit identity and rotation angle as numeric vectors appended to the latent space. This approach tests whether neural networks can truly learn abstract concepts like "rotation" rather than simply memorizing training examples.</p>
-                <p>The conditional VAE encodes MNIST digits into a latent space where rotation becomes a manipulable variable, allowing for the generation of new rotated versions of input digits. This project also served as an opportunity to experiment with the Azure ML pipeline for model training and deployment.</p>
+                <p>While MNIST is by now a cliché in machine learning, this project adds a (literal) twist by conditioning a Variational Autoencoder (VAE) on both digit identity and rotation angle as numeric vectors appended to the latent space. This approach tests whether a basic neural network can truly learn abstract concepts like "rotation" rather than simply memorizing training examples. This project also served as an opportunity to experiment with the Azure ML pipeline for model training and deployment. </p>
+                <p>The conditional VAE encodes MNIST pictures into a latent space where rotation and digit are conditioned upon, as submitted by the user. In practice, users can submit two real numbers (one for digit, one for rotation), and choose a degree of "noise" for random sampling, and have the network generate the desired digit and rotation in a manner that looks handwritten. </p>
                 <div class="mnist-output">
                     <img src="assets/images/mnist_output.jpg" alt="VAE Output with Different Rotations" style="max-width: 100%; max-height: 800px; object-fit: contain; box-shadow: var(--shadow); border-radius: var(--border-radius);">
                 </div>
-                <p>While the model performs well within its training distribution, it struggles to generalize rotation beyond the specific angles seen during training, demonstrating both the capabilities and limitations of deep generative models in learning abstract transformations from data.</p>
+                <p>While the model performs well within its training distribution, it struggles to generalize rotation beyond the specific angles seen during training, demonstrating both the capabilities and limitations of this model in learning abstract transformations.</p>
                 <div class="tech-stack">
                     <span class="tech-tag">PyTorch</span>
                     <span class="tech-tag">Deep Learning</span>
@@ -640,16 +641,20 @@
                     </div>
                 </div>
                 <img src="assets/images/nba_project.jpg" alt="NBA Gambling Project" class="featured-project-img">
-                <p>A statistical approach to sports betting that leverages historical Vegas betting lines to form prior distributions. The key insight is using Vegas's own historical over/under predictions as a powerful prior distribution - a quantification of their expert knowledge - and combining this with a stacked machine learning model as a likelihood function.</p>
+                <p>Common wisdom suggests that in the long run "nobody can beat Vegas" (or any popular gambling site), and for good reason. But that doesn't mean you can't make money. In this project, developed over several years, I show how historical data on the performance of over-unders, spreads, and moneylines can be utilized to construct a meaningful prior distribution, and using modern machine learning methods (including gradient boosted tree ensembles, elastic net GLMs, and regression splines), we can arbitrarily improve on such a prior. More importantly, this model-agnostic Bayesian approach provides justifiable decisions for what bets to place.</p>
+		<p>During the 2022-2023 NBA regular season, this methodology generated over $700 in profit across hundreds of small bets by identifying market inefficiencies where Vegas odds diverged from my posterior predictive distributions. The system essentially turns Vegas's own expertise against itself by leveraging their historical accuracy.</p>
                 <img src="assets/images/gambling_balance.jpg" alt="Total Balance vs. Number of Bets Placed" style="max-width: 100%; margin: 1rem 0; border-radius: var(--border-radius); box-shadow: var(--shadow);">
-                <p>During the 2022-2023 NBA regular season, this methodology generated over $700 in profit across hundreds of small bets by identifying market inefficiencies where Vegas odds diverged from my posterior predictive distributions. The system essentially turns Vegas's own expertise against itself by leveraging their historical accuracy.</p>
-                <p>The automated pipeline pulls fresh NBA data each morning, updates the models, and outputs decision spreadsheets identifying favorable betting opportunities based on current Vegas lines, placing bets only when both models (Gaussian mixture and quasi-Poisson) agree that the expected profit is positive.</p>
+                <p>The automated pipeline I've prepared pulls fresh NBA data each morning, updates an ensemble of models, stacks them, and outputs decision spreadsheets identifying favorable betting opportunities based on current Vegas lines. An exchangeable correlation structure for teams nested within season was included. Two sets of models for each response (over-under, spread, moneyline) are trained under different distributional assumptions. Bets are only suggested when both sets of models agree that the expected profit is positive. The entire process from start to finish is automated, with decision rules for over-unders, spreads, and moneylines sent daily. </p>
                 <div class="tech-stack">
-                    <span class="tech-tag">R</span>
-                    <span class="tech-tag">Statistical Modeling</span>
-                    <span class="tech-tag">Bayesian Methods</span>
+                    <span class="tech-tag">stan</span>
+                    <span class="tech-tag">xgboost</span>
+		    <span class="tech-tag">elastic net</span>
+		    <span class="tech-tag">earth</span>
+		    <span class="tech-tag">Mixed Effects</span>
+                    <span class="tech-tag">Bayesian</span>
                     <span class="tech-tag">Model Stacking</span>
                     <span class="tech-tag">Automation</span>
+		    <span class="tech-tag">NBA</span>
                 </div>
             </div>
         </section>
