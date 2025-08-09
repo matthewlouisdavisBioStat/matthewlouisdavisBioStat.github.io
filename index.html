@@ -589,8 +589,8 @@
                 <div class="featured-project-header">
                     <h3>Time to Churn</h3>
                     <div class="featured-project-links">
-                        <a href="projects/churn_analysis.html" class="button">View Project</a>
-                        <a href="https://github.com/matthewlouisdavisBioStat/Churn-Analysis" class="button">GitHub</a>
+                        <a href="projects/TimeToChurn.html" class="button">View Project</a>
+                        <a href="https://github.com/matthewlouisdavisBioStat/TimeToChurn" class="button">GitHub</a>
                     </div>
                 </div>
                 <img src="assets/images/churn_project.jpg" alt="Time to Churn Analysis" class="featured-project-img">
@@ -611,8 +611,8 @@
                 <div class="featured-project-header">
                     <h3>MNIST with a Twist</h3>
                     <div class="featured-project-links">
-                        <a href="projects/mnist_twist.html" class="button">View Project</a>
-                        <a href="https://github.com/matthewlouisdavisBioStat/MNIST-Twist" class="button">GitHub</a>
+                        <a href="projects/MNISTWithATwist.html" class="button">View Project</a>
+                        <a href="https://github.com/matthewlouisdavisBioStat/MNISTWithATwist" class="button">GitHub</a>
                     </div>
                 </div>
                 <img src="assets/images/mnist_project.jpg" alt="MNIST with a Twist" class="featured-project-img">
@@ -636,15 +636,15 @@
                 <div class="featured-project-header">
                     <h3>To Make an Adversary Inadmissible</h3>
                     <div class="featured-project-links">
-                        <a href="projects/nba_gambling.html" class="button">View Project</a>
-                        <a href="https://github.com/matthewlouisdavisBioStat/NBA-Betting" class="button">GitHub</a>
+                        <a href="projects/ToMakeAnAdversaryInadmissible.html" class="button">View Project</a>
+                        <a href="https://github.com/matthewlouisdavisBioStat/ToMakeAnAdversaryInadmissible" class="button">GitHub</a>
                     </div>
                 </div>
                 <img src="assets/images/nba_project.jpg" alt="NBA Gambling Project" class="featured-project-img">
-                <p>Common wisdom suggests that in the long run "nobody can beat Vegas" (or any popular gambling site), and for good reason. But that doesn't mean you can't make money. In this project, developed over several years, I show how historical data on the performance of over-unders, spreads, and moneylines can be utilized to construct a meaningful prior distribution, and using modern machine learning methods (including gradient boosted tree ensembles, elastic net GLMs, and regression splines), we can arbitrarily improve on such a prior. More importantly, this model-agnostic Bayesian approach provides justifiable decisions for what bets to place.</p>
-		<p>During the 2022-2023 NBA regular season, this methodology generated over $700 in profit across hundreds of small bets by identifying market inefficiencies where Vegas odds diverged from my posterior predictive distributions. The system essentially turns Vegas's own expertise against itself by leveraging their historical accuracy.</p>
+                <p>Common wisdom suggests that in the long run "nobody can beat Vegas" (or any popular gambling site), and for good reason. But this isn't quite true. In this project, developed over several years, I show how historical data on the performance of over-unders, spreads, and moneylines can be utilized to construct a meaningful prior distribution, and using modern machine learning methods (specifically, "stacking" gradient boosted tree ensembles, elastic net GLMs, and regression splines), we can arbitrarily improve on such a prior. More importantly, this model-agnostic Bayesian approach provides justifiable decisions for what bets to place.</p>
+		<p>In the presentation linked, I show the final project I submitted in spring of 2022 for my advanced computing class (I received a perfect score of course). In the following NBA season of 2022-2023, actually applying my method, the methodology generated over $700 in profit across hundreds of small bets by identifying market inefficiencies where Vegas odds diverged from my posterior predictive distributions. The system essentially turned Vegas's own expertise against itself by leveraging their historical accuracy. Since then, I have built upon the algorithm, in particular improving methods of sampling from posterior distrbibutions, and continue to profit. </p>
                 <img src="assets/images/gambling_balance.jpg" alt="Total Balance vs. Number of Bets Placed" style="max-width: 100%; margin: 1rem 0; border-radius: var(--border-radius); box-shadow: var(--shadow);">
-                <p>The automated pipeline I've prepared pulls fresh NBA data each morning, updates an ensemble of models, stacks them, and outputs decision spreadsheets identifying favorable betting opportunities based on current Vegas lines. An exchangeable correlation structure for teams nested within season was included. Two sets of models for each response (over-under, spread, moneyline) are trained under different distributional assumptions. Bets are only suggested when both sets of models agree that the expected profit is positive. The entire process from start to finish is automated, with decision rules for over-unders, spreads, and moneylines sent daily. </p>
+                <p>The automated pipeline I've prepared pulls fresh NBA data each morning, updates an ensemble of supervised ML models, stacks them, and outputs decision spreadsheets identifying favorable betting opportunities based on current Vegas lines. An exchangeable correlation structure for teams nested within season is included. Two sets of models for each response (over-under, spread, moneyline) are trained under different distributional assumptions. Bets are only suggested when both sets of models agree that the expected profit is positive. The entire process from start to finish is automated, with decision rules for over-unders, spreads, and moneylines sent daily over email. The current code used to perform the full pipeline from webscraping NBA data to training ML models to deciding upon which bets to place and sending out the decisions is provided in the github link for reference. Variable importance plots are also provided. </p>
                 <div class="tech-stack">
                     <span class="tech-tag">stan</span>
                     <span class="tech-tag">xgboost</span>
