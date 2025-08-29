@@ -593,7 +593,6 @@
                         <a href="https://github.com/matthewlouisdavisBioStat/TimeToChurn" class="button">GitHub</a>
                     </div>
                 </div>
-                <img src="assets/images/churn_project.jpg" alt="Time to Churn Analysis" class="featured-project-img">
 		<p>In this project, using real customer retention data, I show how a classic survival analysis often used for clinical trial research can be applied to one of the most important challenges any subscription-based business faces, "Churn", e.g. customer turnover. The event of quitting a subscription is treated as analogous to death, with continued subscription considered as right-censorhip. While many resources show how to predict customer retention, a survival framework can be used to make decision on profitability in a way that logistic regression and popular machine learning methods that ignore right-censoring simply can't. </p>
                 <p>I borrowed data from a friend's growing subscription-based business. Email "interventions" ranging from special offers to aesthetic advertisements were sent out to customers, and questions of interest included "what interventions affected churn", "what characteristics are most important in predicting churn", and most importantly "which intervention should we assign next to maximize profit?". I used a Weibull Accelerated Failure Time (AFT) model implemented through my lgspline R package to answer these.</p>
  		<img src="assets/images/weibull_plot.jpg" alt="Weibull Plot" style="max-width: 100%; margin: 1rem 0; border-radius: var(--border-radius); box-shadow: var(--shadow);">
@@ -616,7 +615,6 @@
                         <a href="https://github.com/matthewlouisdavisBioStat/MNISTWithATwist" class="button">GitHub</a>
                     </div>
                 </div>
-                <img src="assets/images/mnist_project.jpg" alt="MNIST with a Twist" class="featured-project-img">
                 <p>While MNIST is by now a cliché in machine learning, this project adds a (literal) twist by conditioning a Variational Autoencoder (VAE) on both digit identity and rotation angle as numeric vectors appended to the latent space. This approach tests whether a basic neural network can truly learn abstract concepts like "rotation" rather than simply memorizing training examples. This project also served as an opportunity to experiment with the Azure ML pipeline for model training and deployment. </p>
                 <p>The conditional VAE encodes MNIST pictures into a latent space where rotation and digit are conditioned upon, as submitted by the user. In practice, users can submit two real numbers (one for digit, one for rotation), and choose a degree of "noise" for random sampling, and have the network generate the desired digit and rotation in a manner that looks handwritten. </p>
                 <div class="mnist-output">
@@ -641,7 +639,6 @@
                         <a href="https://github.com/matthewlouisdavisBioStat/ToMakeAnAdversaryInadmissible" class="button">GitHub</a>
                     </div>
                 </div>
-                <img src="assets/images/nba_project.jpg" alt="NBA Gambling Project" class="featured-project-img">
                 <p>Common wisdom suggests that in the long run "nobody can beat Vegas" (or any popular gambling site), and for good reason. But this isn't quite true. In this project, developed over several years, I show how historical data on the performance of over-unders, spreads, and moneylines can be utilized to construct a meaningful prior distribution, and using modern machine learning methods (specifically, "stacking" gradient boosted tree ensembles, elastic net GLMs, and regression splines), we can arbitrarily improve on such a prior. More importantly, this model-agnostic Bayesian approach provides justifiable decisions for what bets to place.</p>
 		<p>In the presentation linked, I show the final project I submitted in spring of 2022 for my advanced computing class (I received a perfect score of course). In the following NBA season of 2022-2023, actually applying my method, the methodology generated over $700 in profit across hundreds of small bets by identifying market inefficiencies where Vegas odds diverged from my posterior predictive distributions. The system essentially turned Vegas's own expertise against itself by leveraging their historical accuracy. Since then, I have built upon the algorithm, in particular improving methods of sampling from posterior distrbibutions, and continue to profit. </p>
                 <img src="assets/images/gambling_balance.jpg" alt="Total Balance vs. Number of Bets Placed" style="max-width: 100%; margin: 1rem 0; border-radius: var(--border-radius); box-shadow: var(--shadow);">
